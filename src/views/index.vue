@@ -14,7 +14,7 @@
         {{item.name}}
       </li>
     </ul>
-    <div class="item users" v-show="tabShow === 'users'" v-for="item in userList" :key="item.name">
+    <div class="item users" v-show="tabShow === 'users'" v-for="item in usersList" :key="item.name">
       <span>编号:{{item.id}}</span>
       <p>姓名:{{item.name}}</p>
     </div>
@@ -27,8 +27,8 @@
 
 <script>
 /*
-  1 一进入页面显示前5条数据
-  2 查询条件没变的情况下,不需要重新获取数据(也就是需要缓存数据)
+  1 一进入页面显示前5条数据 共用一个查询模块 下面是tab切换
+  2 在tab切换的时候,如果查询条件没变的情况下,不需要重新获取数据(也就是需要缓存数据)
 */
 export default {
   components: {},
@@ -37,7 +37,7 @@ export default {
     return {
       start: 0,
       end: 5,
-      userList: [],
+      usersList: [],
       newsList:[],
       tabs:[
         {
@@ -69,7 +69,7 @@ export default {
         }
       }).then(data => {
         console.log(data)
-        this.userList = data
+        this.usersList = data
       })
     },
     getNews(){

@@ -10,7 +10,7 @@ export default {
     },
     actions: {
         getUsers({ commit, state },playload) {
-            request({
+            /* request({
                 url: 'http://localhost:3000/users/list',
                 method: 'get',
                 params: {
@@ -23,7 +23,7 @@ export default {
                     type: 'getUsers',
                     res: data
                 })
-            })
+            }) */
         },
     },
     mutations: {
